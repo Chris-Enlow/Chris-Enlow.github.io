@@ -29,8 +29,15 @@ header h1 {
     font-size: 5rem;
     font-family: "Garamond", serif;
 }
+header p{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 p{
     font-size: 1.5rem;
+    max-width: 1000px;
 }
 
 nav {
@@ -78,7 +85,6 @@ h4{
 }
 
 .about p, .skills ul, .projects .project, .contact form {
-    max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
 }
@@ -97,7 +103,6 @@ h4{
 }
 
 .coursework ul{
-    max-width: 800px;
     background-color: #333;
     color: white;
     margin: 10px 0;
