@@ -16,7 +16,7 @@ header {
 }
 
 main{
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     line-height: 1.6;
     padding: 0;
@@ -36,8 +36,8 @@ header p{
     line-height: 1.6;
 }
 p{
-    font-size: 1.5rem;
-    max-width: 1000px;
+    font-size: 2rem;
+    max-width: 1200px;
 }
 
 nav {
@@ -74,7 +74,7 @@ section {
 h2 {
     text-align: center;
     color: #333;
-    font-size: 1.75rem;
+    font-size: 2.25rem;
 }
 h3 {
     text-align: center;
@@ -100,6 +100,7 @@ h4{
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
+    font-size: 1.5rem;
 }
 
 .coursework ul{
@@ -109,6 +110,9 @@ h4{
     padding: 10px;
     border-radius: 5px;
     margin: 0 auto;
+}
+.coursework li{
+    font-size: 1.25rem;
 }
 
 footer {

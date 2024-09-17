@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     background-image: url("background.jfif");
     background-size: cover;
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
 }
@@ -68,6 +68,7 @@ h2 {
     color: #333;
 }
 h3 {
+    font-size: 2.25rem;
     text-align: center;
     color: #333;
 }

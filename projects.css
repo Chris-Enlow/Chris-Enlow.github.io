@@ -15,7 +15,7 @@ header {
 }
 
 main{
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     line-height: 1.6;
     padding: 0;
@@ -68,22 +68,6 @@ h2 {
     color: #333;
     font-size: 2.25rem;
 }
-h3 {
-    text-align: center;
-    color: #ffffff;
-    font-size: 2rem;
-    font-family: "Times New Roman", serif;
-}
-
-.project p{
-    line-height: 1;
-    font-size: 1.5rem;
-    color: #ffffff;
-}
-.project li{
-    font-size: 1.25rem;
-    color: #ffffff;
-}
 
 .project{
     background-color: #333;
@@ -92,10 +76,25 @@ h3 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: center;
     margin-bottom: 2vh;
+    color: #ffffff;
+}
+
+.project p{
+    line-height: 1;
+    font-size: 1.75rem;
+
+}
+.project li{
+    font-size: 1.5rem;
 }
 
 .projects .project h3 {
     margin-top: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-family: "Times New Roman", serif;
 }
 
 
