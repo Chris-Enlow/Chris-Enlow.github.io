@@ -35,10 +35,12 @@ header p{
     margin: 0 auto;
     line-height: 1.6;
 }
-p{
-    font-size: 2rem;
+
+.about p {
+    font-size: 1.2rem; /* Or whatever size you prefer */
     max-width: 1200px;
 }
+
 
 nav {
     display: flex;
