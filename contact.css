@@ -126,51 +126,38 @@ footer p {
 }
 
 
-.contact-intro {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-    font-size: 1.1rem;
-    color: #555;
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
-.contact-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap; 
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #333;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.contact-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 25px;
-    width: 250px;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.contact-link i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #333;
+  transition: color 0.2s ease;
 }
 
-.contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.contact-link:hover {
+  transform: translateY(-5px);
+  color: #0077b5; /* default LinkedIn blue-ish */
 }
 
-.contact-card i {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: #333;
+.contact-link:hover i {
+  color: #0077b5;
 }
 
-.contact-card h3 {
-    margin-bottom: 10px;
-}
-
-.contact-card p {
-    font-size: 1rem;
-    color: #666;
-}
 
