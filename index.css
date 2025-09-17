@@ -37,7 +37,7 @@ header p{
 }
 
 .about p {
-    font-size: 1.2rem; /* Or whatever size you prefer */
+    font-size: 1.4rem;
     max-width: 1200px;
 }
 
@@ -147,3 +147,5 @@ footer p {
     animation-fill-mode: forwards; 
     opacity: 0; 
 }
+
+
