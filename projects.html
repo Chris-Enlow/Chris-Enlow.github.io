@@ -26,74 +26,107 @@
             <section class="projects">
                 <h2>Projects</h2>
                 <div class="project">
-                        <h3>Reinforcement Learning Driving Agent — (Python, PyTorch, Pygame)</h3>
-                        <p>
-                            Developed a Deep Q-Learning (DQN) agent from scratch to autonomously learn optimal racing lines on a custom-built track environment.
-                        </p>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <h3>Reinforcement Learning Driving Agent</h3>
+                                <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(Python, PyTorch, Pygame)</p>
+                            </div>
+                            <img src="DQN_picture.jpg" alt="Reinforcement Learning Driving Agent Demo" class="project-img">
+                        </div>
+                        
+                        <p>Developed a Deep Q-Learning (DQN) agent from scratch to autonomously learn optimal racing lines on a custom-built track environment.</p>
+                        
                         <p><strong>Key Features</strong></p>
                         <ul>
-                            <li>Implemented a custom reward function leveraging speed, checkpoints, and track position to guide the agent’s learning process.</li>
+                            <li>Implemented a custom reward function leveraging speed, checkpoints, and track position to guide the agent's learning process.</li>
                             <li>Trained the model across 5,000+ episodes with experience replay, epsilon-greedy exploration, and target network updates for stable learning.</li>
                             <li>Built a checkpoint system to save and resume full training state (model, optimizer, epsilon) across multiple sessions.</li>
                             <li>Integrated Pygame-based simulation with ray casting for real-time state observations and environment rendering.</li>
                         </ul>
-                        <p>
-                            <a href="https://github.com/Chris-Enlow/racecar-rl-agent" target="_blank">View Project (GitHub)</a>
-                        </p>
+                        
+                        <a href="https://github.com/Chris-Enlow/racecar-rl-agent" target="_blank">View Project (GitHub)</a>
                     </div>
-
-                <div class="project">
-                    <h3>Full-Stack Stock Trading Simulator - (React, TypeScript, Python, Flask, Supabase)</h3>
-                    <p>
-                        Architected and developed a full-stack, session-based stock trading game where users manage a portfolio over a simulated "year" using procedurally generated market data.
-                    </p>
-                    <p>Features</p>
-                    <ul>
-                        <li>Secure user authentication and session management to allow players to resume active games.</li>
-                        <li>A RESTful API built with Python and Flask to handle all game logic and state changes.</li>
-                        <li>Robust, atomic database transactions for all buy/sell orders using custom SQL (pl/pgsql) functions to guarantee data integrity.</li>
-                        <li>A dynamic and responsive user interface built with React and TypeScript for a seamless user experience.</li>
-                    </ul>
-                    <p>
-                        <a href="https://github.com/Chris-Enlow/stock-trading-simulator" target="_blank">View Project (Github)</a>
-                    </p>
                 </div>
 
+
                 <div class="project">
-                    <h3>Personal Portfolio Website - (HTML5, CSS, JavaScript)</h3>
-                    <p>
-                        A simple portfolio website to showcase my skills and projects.
-                    </p>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <h3>Full-Stack Stock Trading Simulator</h3>
+                                <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(React, TypeScript, Python, Flask, Supabase)</p>
+                            </div>
+                            <img src="stock_market_image.jpg" alt="Stock Trading Simulator Demo" class="project-img">
+                        </div>
+                        
+                        <p>Architected and developed a full-stack, session-based stock trading game where users manage a portfolio over a simulated "year" using procedurally generated market data.</p>
+                        
+                        <p><strong>Key Features</strong></p>
+                        <ul>
+                            <li>Secure user authentication and session management to allow players to resume active games.</li>
+                            <li>A RESTful API built with Python and Flask to handle all game logic and state changes.</li>
+                            <li>Robust, atomic database transactions for all buy/sell orders using custom SQL (pl/pgsql) functions to guarantee data integrity.</li>
+                            <li>A dynamic and responsive user interface built with React and TypeScript for a seamless user experience.</li>
+                        </ul>
+                        
+                        <a href="https://github.com/Chris-Enlow/stock-trading-simulator" target="_blank">View Project (GitHub)</a>
+                    </div>
                 </div>
+
                 <div class="project">
-                    <h3>Mock-Restaurant - (HTML5, CSS, JavaScript, ReactJS, Vite, Vuse)</h3>
-                    <p>
-                        Developed a mock-restaurant app enabling users to place orders and redeem rewards points. 
-                    </p>
-                    <p>Features</p>
-                    <ul>
-                        <li>Secure login via email authentication</li>
-                        <li>Data storage and retrieval through Supabase</li>
-                        <li>Dynamic interface to showcase user information</li>
-                    </ul>
-                    <p>
-                        <a href="https://github.com/Chris-Enlow/CEN3031_ResearchProject" target="_blank">View Project (Github)</a>
-                    </p>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <h3>Mock-Restaurant</h3>
+                                <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(HTML5, CSS, JavaScript, ReactJS, Vite, Vuse, Supabase)</p>
+                            </div>
+                            <img src="restaurant_reward.png" alt="Mock-Restaurant Demo" class="project-img">
+                        </div>
+                        
+                        <p>Developed a mock-restaurant app enabling users to place orders and redeem rewards points.</p>
+                        
+                        <p><strong>Key Features</strong></p>
+                        <ul>
+                            <li>Secure login via email authentication.</li>
+                            <li>Data storage and retrieval through Supabase.</li>
+                            <li>Dynamic interface to showcase user information.</li>
+                        </ul>
+                        
+                        <a href="https://github.com/Chris-Enlow/CEN3031_ResearchProject" target="_blank">View Project (GitHub)</a>
+                    </div>
                 </div>
+
                 <div class="project">
-                    <h3>Minesweeper - (C++, SFML)</h3>
-                    <p>
-                         Interactive minesweeper game devloped in C++ to demonstrate OOP concepts.
-                    </p>
-                    <p>Features</p>
-                    <ul>
-                        <li>Custom board and number of mines</li>
-                        <li>Debug mode, scoreboard, standard minesweeper functionality</li>
-                        <li>Leaderboard to compare solve times</li>
-                    </ul>
-                    <p>
-                        <a href="https://github.com/Chris-Enlow/COP3503_Minesweeper" target="_blank">View Project (Github)</a>
-                    </p>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div>
+                                <h3>Minesweeper</h3>
+                                <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(C++, SFML)</p>
+                            </div>
+                            <img src="minesweeper.png" alt="Minesweeper Game Demo" class="project-img">
+                        </div>
+                        
+                        <p>Interactive minesweeper game developed in C++ to demonstrate OOP concepts.</p>
+                        
+                        <p><strong>Key Features</strong></p>
+                        <ul>
+                            <li>Custom board and number of mines.</li>
+                            <li>Debug mode, scoreboard, standard minesweeper functionality.</li>
+                            <li>Leaderboard to compare solve times.</li>
+                        </ul>
+                        
+                        <a href="https://github.com/Chris-Enlow/COP3503_Minesweeper" target="_blank">View Project (GitHub)</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-content">
+                        <h3>Personal Portfolio Website</h3>
+                        <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 20px;">(HTML5, CSS, JavaScript)</p>
+                        
+                        <p>A simple portfolio website to showcase my skills and projects.</p>
+                    </div>
                 </div>
             </section>
         </div>
