@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url("background.jfif");
+    background-image: url("images/background.jfif");
     background-size: cover;
     background-position: center; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
