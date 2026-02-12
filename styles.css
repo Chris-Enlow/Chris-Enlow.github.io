@@ -364,6 +364,21 @@ footer h4 {
         width: 320px;
         height: 240px;
     }
+
+    /* Position specific project media at the top-right of its project box */
+    .project.has-absolute-media {
+        position: relative;
+        padding-right: 380px; /* room for 320px media + internal gaps */
+    }
+
+    .project.has-absolute-media .project-media--absolute {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 320px;
+        height: 240px;
+        object-fit: cover;
+    }
 }
 
 @media (max-width: 768px) {
@@ -405,6 +420,15 @@ footer h4 {
     }
 
     .project-img {
+        width: 100%;
+        max-width: 280px;
+        height: 180px;
+        align-self: center;
+    }
+
+    /* Ensure absolutely-positioned media returns to normal flow on small screens */
+    .project-media--absolute {
+        position: static;
         width: 100%;
         max-width: 280px;
         height: 180px;
