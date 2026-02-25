@@ -25,6 +25,27 @@
         <div class="container">
             <section class="projects">
                 <h2>Projects</h2>
+
+                <!-- Chatbot: tall image uses flex-row layout, NOT absolute positioning -->
+                <div class="project project--tall-media">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>AI Course Chatbot (In Progress)</h3>
+                            <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(Python, FastAPI, LangChain, FAISS, HTML, CSS, JavaScript)</p>
+                            <p>Engineered an AI-powered conversational assistant integrated into a Thinkific-based leadership training course to provide contextual, in-platform support for learners.</p>
+                            <p><strong>Key Features</strong></p>
+                            <ul>
+                                <li>Built a Retrieval-Augmented Generation (RAG) pipeline that processes course materials into vector embeddings for efficient semantic retrieval.</li>
+                                <li>Developed a Python backend utilizing FastAPI for REST API capabilities, LangChain for vector embedding, and FAISS to retrieve relevant course material for the LLM.</li>
+                                <li>Designed a lightweight, web-based frontend chatbot widget using HTML, CSS, and JavaScript that seamlessly matches the visual theme of the existing course.</li>
+                                <li>Implemented interactive UI elements, including a persistent chat bubble, quick access links for frequently asked questions, and animated typing indicators.</li>
+                            </ul>
+                            <a href="https://github.com/madwirblet/trAIning-leaders" target="_blank">View Project (GitHub)</a>
+                        </div>
+                        <img src="images/chatbot.png" alt="AI Course Chatbot" class="project-img project-img--tall">
+                    </div>
+                </div>
+
                 <div class="project has-absolute-media">
                     <div class="project-content">
                         <div class="project-header">
@@ -37,9 +58,7 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        
                         <p>Developed a Deep Q-Learning (DQN) agent from scratch to autonomously learn optimal racing lines on a custom-built track environment.</p>
-                        
                         <p><strong>Key Features</strong></p>
                         <ul>
                             <li>Implemented a custom reward function leveraging speed, checkpoints, and track position to guide the agent's learning process.</li>
@@ -47,13 +66,9 @@
                             <li>Built a checkpoint system to save and resume full training state (model, optimizer, epsilon) across multiple sessions.</li>
                             <li>Integrated Pygame-based simulation with ray casting for real-time state observations and environment rendering.</li>
                         </ul>
-                        
                         <a href="https://github.com/Chris-Enlow/Reinforcement-Learning-Racecar-Simulator" target="_blank">View Project (GitHub)</a>
                     </div>
                 </div>
-
-
-            
 
                 <div class="project has-absolute-media">
                     <div class="project-content">
@@ -67,9 +82,7 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        
                         <p>Created a comprehensive course scheduling web application designed to streamline the University of Florida's registration experience.</p>
-                        
                         <p><strong>Key Features</strong></p>
                         <ul>
                             <li>Interactive calendar interface with real-time conflict detection and time-slot selection.</li>
@@ -77,22 +90,20 @@
                             <li>Academic planner for mapping out future semesters and managing prerequisites.</li>
                             <li>User authentication to securely save personalized schedules and academic progress.</li>
                         </ul>
-                        
                         <a href="https://github.com/Chris-Enlow/CEN3031_ResearchProject" target="_blank">View Project (GitHub)</a>
                     </div>
                 </div>
-                <div class="project">
+
+                <div class="project has-absolute-media">
                     <div class="project-content">
                         <div class="project-header">
                             <div>
                                 <h3>Full-Stack Stock Trading Simulator</h3>
                                 <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(React, TypeScript, Python, Flask, Supabase)</p>
                             </div>
-                            <img src="images/stock_market_image.jpg" alt="Stock Trading Simulator Demo" class="project-img">
+                            <img src="images/stock_market_image.jpg" alt="Stock Trading Simulator Demo" class="project-img project-media--absolute">
                         </div>
-                        
                         <p>Architected and developed a full-stack, session-based stock trading game where users manage a portfolio over a simulated "year" using procedurally generated market data.</p>
-                        
                         <p><strong>Key Features</strong></p>
                         <ul>
                             <li>Secure user authentication and session management to allow players to resume active games.</li>
@@ -100,30 +111,26 @@
                             <li>Robust, atomic database transactions for all buy/sell orders using custom SQL (pl/pgsql) functions to guarantee data integrity.</li>
                             <li>A dynamic and responsive user interface built with React and TypeScript for a seamless user experience.</li>
                         </ul>
-                        
                         <a href="https://github.com/Chris-Enlow/stock-trading-simulator" target="_blank">View Project (GitHub)</a>
                     </div>
                 </div>
 
-                <div class="project">
+                <div class="project has-absolute-media">
                     <div class="project-content">
                         <div class="project-header">
                             <div>
                                 <h3>Minesweeper</h3>
                                 <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 0;">(C++, SFML)</p>
                             </div>
-                            <img src="images/minesweeper.png" alt="Minesweeper Game Demo" class="project-img">
+                            <img src="images/minesweeper.png" alt="Minesweeper Game Demo" class="project-img project-media--absolute">
                         </div>
-                        
                         <p>Interactive minesweeper game developed in C++ to demonstrate OOP concepts.</p>
-                        
                         <p><strong>Key Features</strong></p>
                         <ul>
                             <li>Custom board and number of mines.</li>
                             <li>Debug mode, scoreboard, standard minesweeper functionality.</li>
                             <li>Leaderboard to compare solve times.</li>
                         </ul>
-                        
                         <a href="https://github.com/Chris-Enlow/COP3503_Minesweeper" target="_blank">View Project (GitHub)</a>
                     </div>
                 </div>
@@ -132,7 +139,6 @@
                     <div class="project-content">
                         <h3>Personal Portfolio Website</h3>
                         <p style="font-size: 1rem; color: #95a5a6; margin-bottom: 20px;">(HTML5, CSS, JavaScript)</p>
-                        
                         <p>A simple portfolio website to showcase my skills and projects.</p>
                     </div>
                 </div>
@@ -143,5 +149,3 @@
         <h4>&copy; 2024 Christopher Enlow. All Rights Reserved.</h4>
     </footer>
 </body>
-
-

@@ -154,7 +154,7 @@ p {
 
 .contact-email i {
     font-size: 2.5rem;
-    color: #d44638; /* Gmail-style red */
+    color: #d44638;
 }
 
 .contact-links {
@@ -192,7 +192,7 @@ p {
     color: #0077b5;
 }
 
-/* Form Styles (if needed later) */
+/* Form Styles */
 .contact form input,
 .contact form textarea {
     width: 100%;
@@ -216,7 +216,9 @@ p {
     background-color: #555;
 }
 
-/* Projects Section */
+/* ============================================================
+   Projects Section
+   ============================================================ */
 .project {
     background: linear-gradient(135deg, #2c3e50, #34495e);
     padding: 30px;
@@ -314,41 +316,33 @@ p {
     transform: translateY(-2px);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: white;
+/* ============================================================
+   Tall-image project (chatbot) — flex row, no absolute tricks
+   ============================================================ */
+.project--tall-media .project-content {
+    flex-direction: column;
+    gap: 20px;
 }
 
-footer p,
-footer h4 {
-    margin: 0;
-    font-size: 1rem;
+/* The tall image: natural aspect ratio, no cropping */
+.project-img--tall {
+    width: 100%;
+    max-width: 280px;
+    height: auto;           /* preserves the full 380×495 image */
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    align-self: center;
 }
 
-/* Animations */
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.project-img--tall:hover {
+    transform: scale(1.05);
 }
 
-.fade-in-element {
-    animation-name: fadeInLeft;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-
-/* Responsive Design */
+/* ============================================================
+   Standard projects — absolutely-positioned media top-right
+   ============================================================ */
 @media (min-width: 768px) {
     .project-header {
         flex-direction: row;
@@ -366,22 +360,44 @@ footer h4 {
         height: 240px;
     }
 
-    /* Position specific project media at the top-right of its project box */
     .project.has-absolute-media {
         position: relative;
-        padding-right: 380px; /* room for 320px media + internal gaps */
+        padding-right: 340px;
     }
 
     .project.has-absolute-media .project-media--absolute {
         position: absolute;
         top: 30px;
         right: 30px;
-        width: 320px;
-        height: 240px;
+        width: 280px;
+        height: 210px;
         object-fit: cover;
+    }
+
+    /* Chatbot card: side-by-side flex layout on wider screens */
+    .project--tall-media .project-content {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .project--tall-media .project-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .project-img--tall {
+        flex-shrink: 0;
+        width: 280px;
+        max-width: 280px;
+        height: auto;
+        align-self: flex-start;
     }
 }
 
+/* ============================================================
+   Mobile
+   ============================================================ */
 @media (max-width: 768px) {
     header h1 {
         font-size: 3rem;
@@ -427,12 +443,11 @@ footer h4 {
         align-self: center;
     }
 
-    /* Ensure absolutely-positioned media returns to normal flow on small screens */
     .project-media--absolute {
         position: static;
         width: 100%;
         max-width: 280px;
-        height: 180px;
+        height: auto;
         align-self: center;
     }
 }
@@ -449,4 +464,38 @@ footer h4 {
     main {
         margin: 20px 10px;
     }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+
+footer p,
+footer h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-element {
+    animation-name: fadeInLeft;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
