@@ -6,7 +6,7 @@
       "date": "2026-03-31",
       "summary": "Feeling better about the future of software jobs after seeing two crazy incidents in one day.",
       "tags": ["general", "news"],
-      "content": "<p>Today npm experienced a supply chain attack and Anthropic had their source code leaked. Axios, an HTTP libary that comes with Node.js with over 100 million weekly downloads, was compromised in the attack. Anthropic had their source code leaked via a .map file, intended for internal debugging only, being included in their latest version of their package on the public npm registry. I've been feeling pretty miserable about the future of the software industry recently but this made me smile a little bit. There are still accidents happening all over the tech world, with even the biggest companies involved, and software engineers may still have a role to play.</p>"
+      "content": "<p>Today npm package Axios experienced a supply chain attack and Anthropic had their source code leaked. Axios, an HTTP libary with over 100 million weekly downloads, was compromised in the attack. Anthropic had their source code leaked via a .map file, intended for internal debugging only, being included in their latest version of their package on the public npm registry. I've been feeling pretty miserable about the future of the software industry recently but this made me smile a little bit. There are still accidents happening all over the tech world, with even the biggest companies involved, and software engineers may still have a role to play.</p>"
     },{
       "id": "learning-rust",
       "title": "Learning Rust",
