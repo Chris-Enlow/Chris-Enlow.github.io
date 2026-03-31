@@ -31,6 +31,10 @@
                 <div id="post-list">
                     <h2>Blog</h2>
                     <p class="blog-intro">Thoughts, updates, and things I'm working on.</p>
+
+                    <!-- Tag filter buttons rendered here -->
+                    <div id="tag-filters"></div>
+
                     <div id="posts-container">
                         <p class="blog-loading">Loading posts...</p>
                     </div>
@@ -55,13 +59,46 @@
             text-align: center;
             color: #555;
             font-size: 1.3rem;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .blog-loading {
             text-align: center;
             color: #888;
             font-size: 1.2rem;
+        }
+
+        /* ── Tag filter bar ── */
+        #tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+
+        .tag-btn {
+            background: none;
+            border: 2px solid #555;
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #333;
+            transition: all 0.25s ease;
+            font-family: Arial, sans-serif;
+        }
+
+        .tag-btn:hover {
+            background-color: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .tag-btn.active {
+            background-color: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
         }
 
         /* ── Post card list ── */
@@ -87,10 +124,28 @@
             text-align: left;
         }
 
+        .post-card-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
         .post-card-date {
             font-size: 1rem;
             color: #95a5a6;
-            margin: 0 0 14px 0;
+            margin: 0;
+        }
+
+        .post-tag {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.12);
+            color: #ecf0f1;
+            font-size: 0.85rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .post-card-summary {
@@ -117,6 +172,13 @@
             color: white;
         }
 
+        .no-posts-msg {
+            text-align: center;
+            color: #888;
+            font-size: 1.2rem;
+            padding: 40px 0;
+        }
+
         /* ── Back button ── */
         .back-btn {
             background: none;
@@ -128,6 +190,7 @@
             margin-bottom: 30px;
             transition: all 0.3s ease;
             color: #333;
+            font-family: Arial, sans-serif;
         }
 
         .back-btn:hover {
@@ -146,7 +209,23 @@
         .post-meta {
             font-size: 1rem;
             color: #888;
+            margin-bottom: 6px;
+        }
+
+        .post-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 30px;
+        }
+
+        .post-tag-article {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 0.9rem;
+            padding: 4px 12px;
+            border-radius: 12px;
         }
 
         .post-body {
@@ -168,8 +247,8 @@
 
     <script>
         let allPosts = [];
+        let activeTag = null;
 
-        // Format "2026-03-31" → "March 31, 2026"
         function formatDate(dateStr) {
             const [year, month, day] = dateStr.split('-').map(Number);
             return new Date(year, month - 1, day).toLocaleDateString('en-US', {
@@ -177,31 +256,69 @@
             });
         }
 
-        // Render the post list
+        // Build the tag filter buttons from all unique tags across posts
+        function renderTagFilters(posts) {
+            const tagSet = new Set();
+            posts.forEach(p => (p.tags || []).forEach(t => tagSet.add(t)));
+            const tags = Array.from(tagSet).sort();
+
+            const container = document.getElementById('tag-filters');
+            if (!tags.length) return; // no tags, hide the bar
+
+            const allBtn = `<button class="tag-btn active" data-tag="all" onclick="filterByTag('all', this)">All</button>`;
+            const tagBtns = tags.map(tag =>
+                `<button class="tag-btn" data-tag="${tag}" onclick="filterByTag('${tag}', this)">${tag}</button>`
+            ).join('');
+            container.innerHTML = allBtn + tagBtns;
+        }
+
+        function filterByTag(tag, btn) {
+            // Update active state on buttons
+            document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            activeTag = tag === 'all' ? null : tag;
+            const filtered = activeTag
+                ? allPosts.filter(p => (p.tags || []).includes(activeTag))
+                : allPosts;
+            renderList(filtered);
+        }
+
         function renderList(posts) {
             const container = document.getElementById('posts-container');
             if (!posts.length) {
-                container.innerHTML = '<p class="blog-loading">No posts yet — check back soon!</p>';
+                container.innerHTML = `<p class="no-posts-msg">No posts found for this tag.</p>`;
                 return;
             }
-            container.innerHTML = posts.map(post => `
+            container.innerHTML = posts.map(post => {
+                const tagsHTML = (post.tags || [])
+                    .map(t => `<span class="post-tag">${t}</span>`)
+                    .join('');
+                return `
                 <div class="post-card" onclick="showPost('${post.id}')">
                     <h3 class="post-card-title">${post.title}</h3>
-                    <p class="post-card-date">${formatDate(post.date)}</p>
+                    <div class="post-card-meta">
+                        <span class="post-card-date">${formatDate(post.date)}</span>
+                        ${tagsHTML}
+                    </div>
                     <p class="post-card-summary">${post.summary}</p>
                     <span class="post-card-read">Read More &rarr;</span>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
         }
 
-        // Show a single post
         function showPost(id) {
             const post = allPosts.find(p => p.id === id);
             if (!post) return;
 
+            const tagsHTML = (post.tags || [])
+                .map(t => `<span class="post-tag-article">${t}</span>`)
+                .join('');
+
             document.getElementById('post-content').innerHTML = `
                 <h2>${post.title}</h2>
                 <p class="post-meta">${formatDate(post.date)}</p>
+                <div class="post-tags-row">${tagsHTML}</div>
                 <div class="post-body">${post.content}</div>
             `;
 
@@ -210,22 +327,20 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Go back to the list
         function showList() {
             document.getElementById('post-view').style.display = 'none';
             document.getElementById('post-list').style.display = 'block';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Load posts.json on page load
         fetch('posts.json')
             .then(res => {
                 if (!res.ok) throw new Error('Failed to load posts');
                 return res.json();
             })
             .then(data => {
-                // Sort newest first
                 allPosts = data.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                renderTagFilters(allPosts);
                 renderList(allPosts);
             })
             .catch(() => {

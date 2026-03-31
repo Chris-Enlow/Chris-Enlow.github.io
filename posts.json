@@ -5,6 +5,7 @@
       "title": "Welcome to My Blog",
       "date": "2026-03-31",
       "summary": "A quick intro to why I'm starting to write and what you can expect here.",
+      "tags": ["general"],
       "content": "<p>Hey! I'm Christopher, and this is the first post on my new blog section. I've wanted a place to write about what I'm working on, things I'm learning, and general updates about my journey as a software engineer — so here it is.</p><p>Expect posts about projects I'm building, interesting problems I've run into, things I'm learning in my CS courses at UF, and occasionally just life stuff. Thanks for stopping by!</p>"
     },
     {
@@ -12,7 +13,8 @@
       "title": "Building a RAG Chatbot for an Online Course",
       "date": "2026-03-15",
       "summary": "A behind-the-scenes look at building an AI-powered course assistant using LangChain and FAISS.",
+      "tags": ["projects", "ai/ml"],
       "content": "<p>One of my current projects is an AI chatbot embedded into a Thinkific-based leadership training course. The idea is simple: learners can ask the chatbot questions, and it responds using the actual course material rather than just hallucinating answers.</p><p>The core of it is a <strong>Retrieval-Augmented Generation (RAG)</strong> pipeline. I process all the course PDFs and text into vector embeddings using LangChain, store them in a FAISS index, and then at query time I retrieve the most relevant chunks and pass them to an LLM as context.</p><p>The trickiest part so far has been chunking strategy — too small and you lose context, too large and you waste the context window. I ended up with overlapping chunks of ~500 tokens which seems to strike a good balance.</p><p>The frontend is a lightweight chat widget built in plain HTML/CSS/JS that floats over the course content. More updates to come as this progresses!</p>"
     }
   ]
-} 
+}
