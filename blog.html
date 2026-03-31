@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Christopher Enlow - Blog</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="fade-in-element">Christopher Enlow</h1>
+        <p class="fade-in-element" style="animation-delay: 0.3s;">
+            Computer Science Major | Software Engineer
+        </p>
+        <nav class="fade-in-element" style="animation-delay: 0.6s;">
+            <a href="index.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="blog-section">
+
+                <!-- POST LIST VIEW -->
+                <div id="post-list">
+                    <h2>Blog</h2>
+                    <p class="blog-intro">Thoughts, updates, and things I'm working on.</p>
+                    <div id="posts-container">
+                        <p class="blog-loading">Loading posts...</p>
+                    </div>
+                </div>
+
+                <!-- SINGLE POST VIEW (hidden by default) -->
+                <div id="post-view" style="display: none;">
+                    <button class="back-btn" onclick="showList()">&#8592; Back to Posts</button>
+                    <article id="post-content"></article>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <h4>&copy; 2024 Christopher Enlow. All Rights Reserved.</h4>
+    </footer>
+
+    <style>
+        .blog-intro {
+            text-align: center;
+            color: #555;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+
+        .blog-loading {
+            text-align: center;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        /* ── Post card list ── */
+        .post-card {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+        }
+
+        .post-card-title {
+            font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+            color: #ecf0f1;
+            margin: 0 0 10px 0;
+            text-align: left;
+        }
+
+        .post-card-date {
+            font-size: 1rem;
+            color: #95a5a6;
+            margin: 0 0 14px 0;
+        }
+
+        .post-card-summary {
+            font-size: 1.1rem;
+            color: #bdc3c7;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .post-card-read {
+            display: inline-block;
+            margin-top: 18px;
+            color: #3498db;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 8px 18px;
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover .post-card-read {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* ── Back button ── */
+        .back-btn {
+            background: none;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .back-btn:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        /* ── Single post article ── */
+        #post-content h2 {
+            text-align: left;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .post-meta {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .post-body {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .post-body p {
+            margin-bottom: 20px;
+        }
+
+        .blog-error {
+            text-align: center;
+            color: #c0392b;
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <script>
+        let allPosts = [];
+
+        // Format "2026-03-31" → "March 31, 2026"
+        function formatDate(dateStr) {
+            const [year, month, day] = dateStr.split('-').map(Number);
+            return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+        }
+
+        // Render the post list
+        function renderList(posts) {
+            const container = document.getElementById('posts-container');
+            if (!posts.length) {
+                container.innerHTML = '<p class="blog-loading">No posts yet — check back soon!</p>';
+                return;
+            }
+            container.innerHTML = posts.map(post => `
+                <div class="post-card" onclick="showPost('${post.id}')">
+                    <h3 class="post-card-title">${post.title}</h3>
+                    <p class="post-card-date">${formatDate(post.date)}</p>
+                    <p class="post-card-summary">${post.summary}</p>
+                    <span class="post-card-read">Read More &rarr;</span>
+                </div>
+            `).join('');
+        }
+
+        // Show a single post
+        function showPost(id) {
+            const post = allPosts.find(p => p.id === id);
+            if (!post) return;
+
+            document.getElementById('post-content').innerHTML = `
+                <h2>${post.title}</h2>
+                <p class="post-meta">${formatDate(post.date)}</p>
+                <div class="post-body">${post.content}</div>
+            `;
+
+            document.getElementById('post-list').style.display = 'none';
+            document.getElementById('post-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Go back to the list
+        function showList() {
+            document.getElementById('post-view').style.display = 'none';
+            document.getElementById('post-list').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Load posts.json on page load
+        fetch('posts.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to load posts');
+                return res.json();
+            })
+            .then(data => {
+                // Sort newest first
+                allPosts = data.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                renderList(allPosts);
+            })
+            .catch(() => {
+                document.getElementById('posts-container').innerHTML =
+                    '<p class="blog-error">Could not load posts. Please try again later.</p>';
+            });
+    </script>
+</body>
+</html>
