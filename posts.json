@@ -1,26 +1,12 @@
 {
   "posts": [
    {
-      "id": "security-relevance-modern-era",
-      "title": "Future of software jobs in recent events",
-      "date": "2026-03-31",
-      "summary": "Feeling better about the future of software jobs after seeing two crazy incidents in one day.",
-      "tags": ["general", "news"],
-      "content": "<p>Today npm package Axios experienced a supply chain attack and Anthropic had their source code leaked. Axios, an HTTP libary with over 100 million weekly downloads, was compromised in the attack. Anthropic had their source code leaked via a .map file, intended for internal debugging only, being included in their latest version of their package on the public npm registry. I've been feeling pretty miserable about the future of the software industry recently but this made me smile a little bit. There are still accidents happening all over the tech world, with even the biggest companies involved, and software engineers may still have a role to play.</p>"
-    },{
       "id": "learning-rust",
       "title": "Learning Rust",
       "date": "2026-03-29",
       "summary": "Decided to start learning rust, I want to dip my toes in the \"embedded systems\" world and it seems like a good language for that.",
       "tags": ["general", "projects"],
       "content": "<p>Recently, I've been applying to more jobs in the defense industry and wanted to learn a systems programming language. Rust seemed like a good fit. So far, just from learning the overview of why it is popular, I'm very interested. I've never been super concerened about memory safety in a project because I've never designed a system so important that requires zero bug-tolerance. I'm going to be diving deep into Rust's ownership model and its potential applications in systems programming. Not sure what sort of project I'd like to make with it yet, but I do have an Arduino so maybe I can build something cool with it.</p>"
-    },{
-      "id": "psu-test-complaint",
-      "title": "PSU Test Complaint",
-      "date": "2026-03-24",
-      "summary": "Best Buy tried to charge me $100 for a PSU test",
-      "tags": ["general"],
-      "content": "<p>My PC stopped working in late January and I diagnosed it as a power supply failure pretty quickly. Today I tested it with a multimeter and a paperclip and determined it was almost definitely the issue, but I wanted an expert opinion. Drove over to Best Buy where the guy looked like he had never seen a power supply before. He talked to his manager and determined they would charge me $100 to test it. I left the store immediately and went over to uBreakiFix. They tested it right away and for completely free and it only took about 2 minutes. Very surprised to find out today just how clueless some of the Geek Squad employees are and how ridiculously Best Buy tries to fleece customers.</p>"
     },{
       "id": "building-a-rag-chatbot",
       "title": "Building a RAG Chatbot for an Online Course",
